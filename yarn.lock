@@ -1366,6 +1366,11 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
+"@trpc/server@^10.4.2":
+  version "10.4.2"
+  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-10.4.2.tgz#d56fc919ca080d588ad46cc951ab88246f15dcf3"
+  integrity sha512-/DO7fwIHjKmZ4QawYVbmJnPzTdtTRQR1qrVgQNYf8YlqygQe6xPlPjBQK47iIi1G5fveXhgKFG8SQjNDP3vaDQ==
+
 "@tsconfig/react-native@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@tsconfig/react-native/-/react-native-2.0.2.tgz#ac9b8ceb1de91e2f23ab89f915490a1a4afd65a0"
@@ -7328,3 +7333,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zod@^3.19.1:
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.19.1.tgz#112f074a97b50bfc4772d4ad1576814bd8ac4473"
+  integrity sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==

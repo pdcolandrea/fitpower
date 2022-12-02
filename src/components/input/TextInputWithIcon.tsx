@@ -3,8 +3,10 @@ import React from 'react';
 import {useTheme} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
 
-interface TextInputIconProps extends TextInputProps {}
-const TextInputWithIcon = (props: TextInputIconProps, icon: string) => {
+interface TextInputIconProps extends TextInputProps {
+  icon: string;
+}
+const TextInputWithIcon = (props: TextInputIconProps) => {
   const theme = useTheme();
   return (
     <View
@@ -16,7 +18,7 @@ const TextInputWithIcon = (props: TextInputIconProps, icon: string) => {
         alignItems: 'center',
         borderRadius: 5,
       }}>
-      <Icon name="user" type="font-awesome" style={{padding: 12}} />
+      <Icon name={props.icon} type="font-awesome" style={{padding: 12}} />
       <TextInput
         style={{flex: 1, color: 'white', fontSize: 16}}
         placeholder="Enter text..."

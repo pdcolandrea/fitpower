@@ -50,6 +50,7 @@ const WelcomeModal = () => {
               onChangeText={onChange}
               value={value}
               placeholder="Your Name"
+              icon="user"
             />
           )}
         />
@@ -65,6 +66,7 @@ const WelcomeModal = () => {
               onChangeText={onChange}
               value={value}
               placeholder="Email address"
+              icon="envelope"
             />
           )}
         />
@@ -80,6 +82,7 @@ const WelcomeModal = () => {
               onChangeText={onChange}
               value={value}
               placeholder="Phone number"
+              icon="phone"
             />
           )}
         />
