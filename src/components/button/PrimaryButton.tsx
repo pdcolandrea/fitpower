@@ -1,7 +1,7 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useTheme} from '@react-navigation/native';
-import FText from '../text/Text';
+import FText from '@/components/text/Text';
 
 interface PrimaryButtonProps {
   text: string;

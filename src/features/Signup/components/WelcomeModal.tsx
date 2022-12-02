@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
 
 import React from 'react';
@@ -6,8 +6,11 @@ import TextInputWithIcon from '../../../components/input/TextInputWithIcon';
 import PrimaryButton from '../../../components/button/PrimaryButton';
 import {useTheme} from '../../../theme/theme';
 import FText from '../../../components/text/Text';
+import {trpc} from '@/util/trpc';
 
 const WelcomeModal = () => {
+  const hello = trpc.hellos.greeting.useQuery({name: 'yal'});
+
   const theme = useTheme();
   const {
     control,
