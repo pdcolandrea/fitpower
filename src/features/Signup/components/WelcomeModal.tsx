@@ -7,10 +7,11 @@ import PrimaryButton from '../../../components/button/PrimaryButton';
 import {useTheme} from '../../../theme/theme';
 import FText from '../../../components/text/Text';
 import {trpc} from '@/util/trpc';
+import {useNavigation} from '@react-navigation/native';
 
 const WelcomeModal = () => {
-  const hello = trpc.hellos.greeting.useQuery({name: 'yal'});
-
+  const signupOne = trpc.auth.signupOne.useMutation();
+  const navigation = useNavigation();
   const theme = useTheme();
   const {
     control,
@@ -23,7 +24,23 @@ const WelcomeModal = () => {
       phone: '',
     },
   });
-  const onSubmit = data => console.log(data);
+
+  const onSubmit = data => {
+    const {name, email, phone} = data;
+
+    signupOne.mutate(
+      {
+        name,
+        email,
+        phone,
+      },
+      {
+        onSuccess: () => {
+          navigation.navigate('VerifyModal');
+        },
+      },
+    );
+  };
 
   const onSignInPressed = () => {};
 

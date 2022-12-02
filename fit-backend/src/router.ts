@@ -1,46 +1,10 @@
-import {inferAsyncReturnType, initTRPC, TRPCError} from '@trpc/server';
-import * as trpcExpress from '@trpc/server/adapters/express';
-
+import {TRPCError} from '@trpc/server';
+import {publicProcedure, router} from './trpc';
 import {z} from 'zod';
-
-export const createContext = ({
-  req,
-  res,
-}: trpcExpress.CreateExpressContextOptions) => {
-  const getUser = () => {
-    if (req.headers.authorization !== 'secret') {
-      return null;
-    }
-    return {
-      name: 'alex',
-    };
-  };
-
-  return {
-    req,
-    res,
-    user: getUser(),
-  };
-};
-type Context = inferAsyncReturnType<typeof createContext>;
-
-const t = initTRPC.context<Context>().create();
-
-const router = t.router;
-const publicProcedure = t.procedure;
-
-const helloRouter = router({
-  greeting: publicProcedure
-    .input(z.object({name: z.string()}).nullish())
-    .query(({input}) => {
-      return `Hello ${input?.name ?? 'World'}`;
-    }),
-});
+import {authRouter} from './routers/auth';
 
 export const appRouter = router({
-  // merge predefined routers
-  hellos: helloRouter,
-  // post: postRouter,
+  auth: authRouter,
   // or individual procedures
   hello: publicProcedure.input(z.string().nullish()).query(({input, ctx}) => {
     return `hello ${input ?? ctx.user?.name ?? 'world'}`;

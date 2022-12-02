@@ -9,6 +9,7 @@ import WelcomeScreen from './features/Welcome';
 import WelcomeModal from './features/Signup/components/WelcomeModal';
 import {FitTheme} from './theme/theme';
 import {View} from 'react-native';
+import VerifyModal from './features/Signup/components/VerifyModal';
 
 const SignupStack = createNativeStackNavigator();
 const SignupNav = () => {
@@ -25,6 +26,7 @@ const SignupNav = () => {
           headerShown: false,
         }}>
         <SignupStack.Screen name="SignupModal" component={WelcomeModal} />
+        <SignupStack.Screen name="VerifyModal" component={VerifyModal} />
       </SignupStack.Group>
     </SignupStack.Navigator>
   );
