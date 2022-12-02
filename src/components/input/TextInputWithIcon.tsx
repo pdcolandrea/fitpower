@@ -16,9 +16,9 @@ const TextInputWithIcon = (props: TextInputIconProps, icon: string) => {
         alignItems: 'center',
         borderRadius: 5,
       }}>
-      <Icon name="user" type="font-awesome" />
+      <Icon name="user" type="font-awesome" style={{padding: 12}} />
       <TextInput
-        style={{flex: 1, color: 'white', fontSize: 15}}
+        style={{flex: 1, color: 'white', fontSize: 16}}
         placeholder="Enter text..."
         placeholderTextColor="grey"
         {...props}

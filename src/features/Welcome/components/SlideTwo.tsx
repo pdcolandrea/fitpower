@@ -9,6 +9,7 @@ import React from 'react';
 import SwipeIndicator from './SwipeIndicator';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import {FitTheme} from '../../../theme/theme';
+import PrimaryButton from '../../../components/button/PrimaryButton';
 
 const SlideTwo = () => {
   const navigation = useNavigation();
@@ -51,20 +52,9 @@ const SlideTwo = () => {
           Plan your workouts, track your weights & let's achieve your goals
         </Text>
 
-        <TouchableOpacity
-          onPress={onSignupPressed}
-          style={{
-            backgroundColor: theme.colors.primary,
-            marginHorizontal: 50,
-            marginTop: 50,
-            paddingVertical: 15,
-            borderRadius: 10,
-            alignItems: 'center',
-          }}>
-          <View>
-            <Text>Sign Up Now</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={{marginTop: 50}}>
+          <PrimaryButton text="Sign Up Now" onPress={onSignupPressed} />
+        </View>
 
         <SwipeIndicator step={2} />
       </View>
