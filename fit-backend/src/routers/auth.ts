@@ -10,13 +10,15 @@ export const authRouter = router({
   signupOne: publicProcedure
     .input(signupOneValidation)
     .mutation(async ({input, ctx}) => {
+      const phone = `+1${input.phone}`;
       const user = await ctx.prisma.user.create({
         data: {
           name: input.name,
           email: input.email,
-          phone: `+1${input.phone}`,
+          phone,
         },
       });
+
       return user;
     }),
 });

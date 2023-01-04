@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -10,6 +10,7 @@ import WelcomeModal from './features/Signup/components/WelcomeModal';
 import {FitTheme} from './theme/theme';
 import {View} from 'react-native';
 import VerifyModal from './features/Signup/components/VerifyModal';
+import {FitnessContext} from './util/context';
 
 const SignupStack = createNativeStackNavigator();
 const SignupNav = () => {
@@ -39,6 +40,7 @@ const DashboardNav = () => {
       <DashboardStack.Screen
         name="DashboardScreen"
         component={DashboardScreen}
+        options={{headerShown: false}}
       />
     </DashboardStack.Navigator>
   );
@@ -47,11 +49,8 @@ const DashboardNav = () => {
 const RootStack = createNativeStackNavigator();
 const AppStack = createBottomTabNavigator();
 
-interface NavRootProps {
-  isAuth: boolean;
-}
-const NavigationRoot = (props: NavRootProps) => {
-  const {isAuth} = props;
+const NavigationRoot = () => {
+  const {isAuth} = useContext(FitnessContext);
 
   if (!isAuth) {
     return (
@@ -68,6 +67,9 @@ const NavigationRoot = (props: NavRootProps) => {
       initialRouteName="DashboardNav"
       screenOptions={{headerShown: false}}>
       <AppStack.Screen name="DashboardNav" component={DashboardNav} />
+      <AppStack.Screen name="Workout" component={DashboardNav} />
+      <AppStack.Screen name="Leaderboard" component={DashboardNav} />
+      <AppStack.Screen name="Profile" component={DashboardNav} />
     </AppStack.Navigator>
   );
 };

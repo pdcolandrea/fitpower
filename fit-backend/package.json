@@ -22,6 +22,7 @@
     "node-fetch": "^2.6.1",
     "prisma": "^4.7.1",
     "superjson": "^1.11.0",
+    "twilio": "^3.83.4",
     "zod": "^3.0.0"
   },
   "devDependencies": {

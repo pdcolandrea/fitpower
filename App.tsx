@@ -17,6 +17,7 @@ import {StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
 
 import NavigationRoot from './src/navigation';
 import {FitTheme} from './src/theme/theme';
+import {FitnessProvider} from '@/util/context';
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -37,19 +38,22 @@ const App = () => {
   );
 
   const isDarkMode = useColorScheme() === 'dark';
-  const isAuth = false;
 
   return (
-    <trpc.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>
-        <View style={{flex: 1}}>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <NavigationContainer theme={FitTheme}>
-            <NavigationRoot isAuth={isAuth} />
-          </NavigationContainer>
-        </View>
-      </QueryClientProvider>
-    </trpc.Provider>
+    <FitnessProvider>
+      <trpc.Provider client={trpcClient} queryClient={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          <View style={{flex: 1}}>
+            <StatusBar
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+            />
+            <NavigationContainer theme={FitTheme}>
+              <NavigationRoot />
+            </NavigationContainer>
+          </View>
+        </QueryClientProvider>
+      </trpc.Provider>
+    </FitnessProvider>
   );
 };
 

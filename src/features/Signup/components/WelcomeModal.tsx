@@ -1,15 +1,17 @@
 import {View, Text, StyleSheet} from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
 
-import React from 'react';
+import React, {useContext} from 'react';
 import TextInputWithIcon from '../../../components/input/TextInputWithIcon';
 import PrimaryButton from '../../../components/button/PrimaryButton';
 import {useTheme} from '../../../theme/theme';
 import FText from '../../../components/text/Text';
 import {trpc} from '@/util/trpc';
 import {useNavigation} from '@react-navigation/native';
+import {FitnessContext} from '@/util/context';
 
 const WelcomeModal = () => {
+  const {setIsAuth} = useContext(FitnessContext);
   const signupOne = trpc.auth.signupOne.useMutation();
   const navigation = useNavigation();
   const theme = useTheme();
@@ -42,11 +44,13 @@ const WelcomeModal = () => {
     );
   };
 
-  const onSignInPressed = () => {};
+  const onSignInPressed = () => {
+    setIsAuth(true);
+  };
 
   return (
     <View style={{flex: 1, alignItems: 'center'}}>
-      <Text
+      <FText
         style={{
           fontSize: 25,
           fontWeight: '600',
@@ -58,7 +62,7 @@ const WelcomeModal = () => {
           marginTop: 30,
         }}>
         Signup and Start Working Out
-      </Text>
+      </FText>
 
       <View style={{flex: 1, marginHorizontal: 20, marginTop: 20}}>
         <Controller
